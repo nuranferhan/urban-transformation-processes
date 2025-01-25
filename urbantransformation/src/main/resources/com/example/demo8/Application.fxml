@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo8.Controller">
+
+    <top>
+        <AnchorPane style="-fx-background-color: #eef2c4;">
+
+            <!-- Title and Subtitle -->
+            <VBox alignment="CENTER" prefWidth="600" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="50">
+                <Label prefHeight="42.0" prefWidth="380.0" style="-fx-font-size: 20px; -fx-padding: 5px;" text="URBAN TRANSFORMATION OPERATIONS" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Black" size="46.0" />
+               </font>
+               <effect>
+                  <Blend mode="GREEN" />
+               </effect></Label>
+                <Label prefHeight="20.0" prefWidth="324.0" style="-fx-font-size: 14px; -fx-padding: 0px; -fx-text-fill: gray;" text=" " textAlignment="CENTER">
+               <textFill>
+                  <LinearGradient cycleMethod="REPEAT" endX="1.0" endY="1.0" startX="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+               <effect>
+                  <ColorAdjust brightness="-1.0" contrast="-1.0" />
+               </effect></Label>
+            </VBox>
+
+            <!-- Search box in the top right -->
+            <TextField fx:id="searchField" onKeyReleased="#searchById" promptText="Search by ID..." AnchorPane.rightAnchor="10" AnchorPane.topAnchor="10" />
+
+        </AnchorPane>
+    </top>
+
+    <center>
+        <GridPane fx:id="gridpane" blendMode="MULTIPLY" cache="true" hgap="10" style="-fx-padding: 10px; -fx-background-color: #ebe0cd;" vgap="10">
+
+            <!-- ID Number -->
+            <Label text="ID Number:" textFill="#515050">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font></Label>
+            <TextField fx:id="idField" GridPane.columnIndex="1" />
+
+            <!-- Address -->
+            <Label text="Address:" textFill="#515050" GridPane.rowIndex="1">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font></Label>
+            <TextField fx:id="addressField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+            <!-- Age -->
+            <Label text="Age:" textFill="#515050" GridPane.rowIndex="2">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font></Label>
+            <TextField fx:id="ageField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+            <!-- Green Area -->
+            <Label text="Green Area:" textFill="#515050" GridPane.rowIndex="3">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font></Label>
+            <ChoiceBox fx:id="greenBox" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Yes" />
+                        <String fx:value="No" />
+                    </FXCollections>
+                </items>
+            </ChoiceBox>
+
+            <!-- Floor Height -->
+            <Label text="Floor Height:" textFill="#515050" GridPane.rowIndex="4">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font></Label>
+            <TextField fx:id="floorHeightField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+            <!-- Wall Thickness -->
+            <Label text="Wall Thickness:" textFill="#515050" GridPane.rowIndex="5">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font></Label>
+            <TextField fx:id="wallThicknessField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+            <!-- Wall Type -->
+            <Label text="Wall Type:" textFill="#515050" GridPane.rowIndex="6">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font></Label>
+            <TextField fx:id="wallTypeField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+            <!-- Floor Type -->
+            <Label text="Floor Type:" textFill="#515050" GridPane.rowIndex="7">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font></Label>
+            <TextField fx:id="floorTypeField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+
+            <!-- Roof Type -->
+            <Label text="Roof Type:" textFill="#515050" GridPane.rowIndex="8">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font></Label>
+            <TextField fx:id="roofTypeField" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+
+            <!-- Earthquake Risk -->
+            <Label text="Earthquake Risk:" textFill="#515050" GridPane.rowIndex="9">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font></Label>
+            <ChoiceBox fx:id="earthquakeRiskBox" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Risky" />
+                        <String fx:value="Not Risky" />
+                    </FXCollections>
+                </items>
+            </ChoiceBox>
+
+            <!-- Natural Disaster Risk -->
+            <Label text="Natural Disaster Risk:" textFill="#515050" GridPane.rowIndex="10">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font></Label>
+            <ChoiceBox fx:id="disasterRiskBox" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Yes" />
+                        <String fx:value="No" />
+                    </FXCollections>
+                </items>
+            </ChoiceBox>
+
+            <!-- Compliance with Regulations -->
+            <Label text="Compliance with Regulations:" textFill="#515050" GridPane.rowIndex="11">
+            <font>
+               <Font name="Arial Black" size="12.5" />
+            </font></Label>
+            <ChoiceBox fx:id="complianceBox" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Yes" />
+                        <String fx:value="No" />
+                    </FXCollections>
+                </items>
+            </ChoiceBox>
+
+            <!-- Compliance with Budget -->
+            <Label text="Compliance with Budget:" textFill="#515050" GridPane.rowIndex="12">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font></Label>
+            <ChoiceBox fx:id="budgetBox" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Yes" />
+                        <String fx:value="No" />
+                    </FXCollections>
+                </items>
+            </ChoiceBox>
+
+            <!-- Building Type -->
+            <Label text="Building Type:" textFill="#515050" GridPane.rowIndex="13">
+            <font>
+               <Font name="Arial Black" size="13.0" />
+            </font></Label>
+            <ChoiceBox fx:id="buildingTypeBox" GridPane.columnIndex="1" GridPane.rowIndex="13">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Residential" />
+                        <String fx:value="Commercial" />
+                    </FXCollections>
+                </items>
+            </ChoiceBox>
+
+            <!-- Delete Button -->
+            <Button fx:id="deleteButton" onAction="#deleteBuilding" text="Delete" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+
+            <!-- Add Button -->
+            <Button fx:id="addButton" onAction="#addBuilding" text="Add" GridPane.columnIndex="1" GridPane.rowIndex="15" />
+
+            <!-- Edit Button -->
+            <Button fx:id="editButton" onAction="#editBuilding" text="Edit" GridPane.columnIndex="1" GridPane.rowIndex="16" />
+
+            <!-- Save Button -->
+            <Button fx:id="saveButton" onAction="#saveToFile" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="17" />
+
+            <columnConstraints>
+                <ColumnConstraints />
+                <ColumnConstraints />
+            </columnConstraints>
+
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+            <RowConstraints />
+            </rowConstraints>
+
+        </GridPane>
+    </center>
+
+    <!-- TableView -->
+    <left>
+        <TableView fx:id="buildingTable" prefHeight="659.0" prefWidth="1048.0" style="-fx-background-color: #e4e4e4; -fx-background-radius: #2596be;">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="87.00000154972076" text="ID Number" />
+                <TableColumn fx:id="addressColumn" prefWidth="135.39998626708984" text="Address" />
+                <TableColumn fx:id="ageColumn" prefWidth="43.99998474121094" text="Age" />
+                <TableColumn fx:id="greenColumn" prefWidth="73.4000244140625" text="Green Area" />
+                <TableColumn fx:id="floorHeightColumn" prefWidth="93.20001220703125" text="Floor Height" />
+                <TableColumn fx:id="wallThicknessColumn" prefWidth="93.0" text="Wall Thickness" />
+                <TableColumn fx:id="wallTypeColumn" prefWidth="78.4000244140625" text="Wall Type" />
+                <TableColumn fx:id="floorTypeColumn" prefWidth="86.0" text="Floor Type" />
+                <TableColumn fx:id="roofTypeColumn" prefWidth="64.0" text="Roof Type" />
+                <TableColumn fx:id="earthquakeRiskColumn" prefWidth="88.0" text="Earthquake Risk" />
+                <TableColumn fx:id="disasterRiskColumn" prefWidth="79.20001220703125" text="Natural Disaster" />
+                <TableColumn fx:id="complianceColumn" prefWidth="64.20001220703125" text="Regulation" />
+                <TableColumn fx:id="budgetColumn" prefWidth="57.0001220703125" text="Budget" />
+            </columns>
+        </TableView>
+    </left>
+</BorderPane>
